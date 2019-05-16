@@ -7,13 +7,13 @@
 
 <script>
 export default {
-    props: {
-        name: {
-            type: String,
-            default: "boo"
-        }
+  props: {
+    name: {
+      type: String,
+      default: 'boo'
     }
-};
+  }
+}
 </script>
 
 <style>

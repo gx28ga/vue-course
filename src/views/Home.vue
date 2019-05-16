@@ -13,42 +13,42 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-    name: "home",
-    components: {
-        HelloWorld
-    },
-    beforeRouteEnter(to, from, next) {
-        next(vm => {
-            console.log(vm);
-        });
-    },
-    // beforeRouteLeave(to, from, next) {
-    //     let leave = confirm("确认离开？");
-    //     if (leave) next();
-    // },
-    methods: {
-        go(type) {
-            switch (type) {
-                case "back":
-                    this.$router.back();
-                    break;
-                case "push":
-                    this.$router.push({
-                        name: "parent",
-                        params: {
-                            name: "rand"
-                        }
-                    });
-                    break;
-                case "replace":
-                    this.$router.replace({
-                        name: "parent"
-                    });
+  name: 'home',
+  components: {
+    HelloWorld
+  },
+  beforeRouteEnter (to, from, next) {
+    next(vm => {
+      console.log(vm)
+    })
+  },
+  // beforeRouteLeave(to, from, next) {
+  //     let leave = confirm("确认离开？");
+  //     if (leave) next();
+  // },
+  methods: {
+    go (type) {
+      switch (type) {
+        case 'back':
+          this.$router.back()
+          break
+        case 'push':
+          this.$router.push({
+            name: 'parent',
+            params: {
+              name: 'rand'
             }
-        }
+          })
+          break
+        case 'replace':
+          this.$router.replace({
+            name: 'parent'
+          })
+      }
     }
-};
+  }
+}
 </script>
