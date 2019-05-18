@@ -16,6 +16,10 @@
     <div>
       <AShow :content="inputValue"></AShow>
     </div>
+    <img
+      :src="src"
+      alt=""
+    >
   </div>
 </template>
 
@@ -30,7 +34,8 @@ export default {
     return {
       inputValue: '',
       myJson: { prefix: 'bilibili' },
-      version: 3.0
+      version: 3.0,
+      src: ''
     }
   },
   computed: {
@@ -66,8 +71,9 @@ export default {
     }
   },
   created () {
-    getUserInfo({ userId: 123 }).then(data => {
-      console.log(data)
+    getUserInfo({ userId: 123 }).then(res => {
+      console.log(res.data)
+      this.src = res.data.img
     })
   }
 }

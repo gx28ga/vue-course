@@ -3,7 +3,7 @@
     <slot name="start"></slot>
     <span
       ref="number"
-      :class="className"
+      :class="styles"
       :id="eleId"
     >count</span>
     <slot name="end"></slot>
@@ -64,17 +64,28 @@ export default {
   computed: {
     eleId () {
       return `count_up_${this._uid}`
+    },
+    styles () {
+      return ['count-up', this.className]
     }
   },
   methods: {
     getCount () {
-      console.log(this.$refs.number.innerText)
+      return this.$refs.number.innerText
+    },
+    endEventEmitter () {
+      setTimeout(() => {
+        this.$nextTick(() => {
+          this.$emit('animation-end', parseFloat(this.getCount()))
+        })
+      }, this.duration * 1000 + 5)
     }
   },
 
   watch: {
     endVal (newVal, oldVal) {
       this.countUp.update(newVal)
+      this.endEventEmitter()
     }
   },
   mounted () {
@@ -91,6 +102,7 @@ export default {
       })
       setTimeout(() => {
         this.countUp.start()
+        this.endEventEmitter()
       }, this.delay)
     })
   }
