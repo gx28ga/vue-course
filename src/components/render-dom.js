@@ -1,8 +1,8 @@
 export default {
   created () {},
-  functionnal: true,
+  functional: true,
   props: {
-    name: String,
+    name: Number,
     renderFunc: Function
   },
   render: (h, ctx) => {

@@ -76,7 +76,7 @@ export default {
     endEventEmitter () {
       setTimeout(() => {
         this.$nextTick(() => {
-          this.$emit('animation-end', parseFloat(this.getCount()))
+          this.$emit('animationend', parseFloat(this.getCount()))
         })
       }, this.duration * 1000 + 5)
     }

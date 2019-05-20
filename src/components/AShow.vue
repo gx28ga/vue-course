@@ -1,16 +1,15 @@
 <template>
-  <div>
-    <h1>AShow</h1>
-    <div>{{content}}</div>
+  <div @click="onClick">
+    <button>btn</button>
+
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    content: {
-      type: [String, Number],
-      default: ''
+  methods: {
+    onClick () {
+      this.$emit('change')
     }
   }
 }

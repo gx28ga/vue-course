@@ -14,6 +14,11 @@ export default [
     component: () => import('@/views/Store')
   },
   {
+    path: '/menu',
+    name: 'menu',
+    component: () => import('@/views/Menu')
+  },
+  {
     path: '/render',
     name: 'render',
     component: () => import('@/views/Render')

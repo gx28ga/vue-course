@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import Bus from './lib/bus'
 import iView from 'iview'
-import 'iview/dist/styles/iview.css'
+// import 'iview/dist/styles/iview.css'
 process.env.NODE_ENV !== 'production' && require('./mock')
 
 Vue.use(iView)

@@ -4,20 +4,26 @@
       v-for="(item, index) in list"
       :key="`item_${index}`"
     >
-      <span v-if="!render">{{ item.name }}</span>
-      <render-dom
+      <!-- <span v-if="!render">{{ item.name }}</span> -->
+      <slot
+        name="head"
+        :number="item.number"
+      ></slot>
+      <!-- <render-dom
         v-else
         :render-func="render"
         :name="item.name"
-      ></render-dom>
+        class="large"
+      ></render-dom> -->
     </li>
   </ul>
 </template>
 
 <script>
-import RenderDom from '_c/render-dom'
+// import RenderDom from '_c/render-dom'
 export default {
   name: 'List',
+
   props: {
     list: {
       type: Array,
@@ -29,10 +35,13 @@ export default {
     }
   },
   components: {
-    RenderDom
+    // RenderDom
   }
 }
 </script>
 
 <style>
+.large {
+  font-size: 28px;
+}
 </style>
